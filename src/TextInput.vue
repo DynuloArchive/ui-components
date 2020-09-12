@@ -1,5 +1,5 @@
 <template>
-  <div class="field">
+  <div class="field" :width="width">
     <slot ref="input" />
     <label for="text" class="label">{{ field }}</label>
   </div>
@@ -9,6 +9,10 @@
 import Vue from 'vue';
 
 export default Vue.extend({
+  name: 'TextInput',
+  props: {
+    width: String,
+  },
   mounted() {
     if (this.$slots.default !== undefined) {
       const elm = (this.$slots.default[0].elm as HTMLInputElement);
@@ -16,7 +20,6 @@ export default Vue.extend({
       elm.placeholder = ' ';
     }
   },
-  name: 'TextInput',
   data() {
     return {
       field: '',
@@ -37,7 +40,7 @@ export default Vue.extend({
     display: block;
     color:$text-color;
     font-size: 1.2rem;
-    z-index: -1;
+    pointer-events: none;
     position: absolute;
     transform: translateY(-2rem);
     transform-origin: 0%;
