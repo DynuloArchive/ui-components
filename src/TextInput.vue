@@ -27,7 +27,6 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .field {
-  width: 100%;
   margin: 0 auto;
   position: relative;
   border-bottom: 0.2rem dashed $text-color;
