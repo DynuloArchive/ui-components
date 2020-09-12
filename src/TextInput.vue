@@ -1,5 +1,5 @@
 <template>
-  <div class="field" :width="width">
+  <div class="field">
     <slot ref="input" />
     <label for="text" class="label">{{ field }}</label>
   </div>
@@ -10,9 +10,6 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'TextInput',
-  props: {
-    width: String,
-  },
   mounted() {
     if (this.$slots.default !== undefined) {
       const elm = (this.$slots.default[0].elm as HTMLInputElement);
